@@ -14,6 +14,7 @@
 		46D3BC2329F1A1D70043C186 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D3BC2229F1A1D70043C186 /* ContentView.swift */; };
 		46D3BC2529F1A1D90043C186 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46D3BC2429F1A1D90043C186 /* Assets.xcassets */; };
 		46D3BC2829F1A1D90043C186 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46D3BC2729F1A1D90043C186 /* Preview Assets.xcassets */; };
+		46FBED8D29F97CBD00198EB1 /* DBhelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FBED8C29F97CBD00198EB1 /* DBhelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		46D3BC2229F1A1D70043C186 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		46D3BC2429F1A1D90043C186 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46D3BC2729F1A1D90043C186 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		46FBED8C29F97CBD00198EB1 /* DBhelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBhelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 		46D3BC1F29F1A1D70043C186 /* ReminderDVM */ = {
 			isa = PBXGroup;
 			children = (
+				46FBED8C29F97CBD00198EB1 /* DBhelper.swift */,
 				46D3BC2029F1A1D70043C186 /* ReminderDVMApp.swift */,
 				4620D51929F9612A003AF59D /* Models */,
 				4620D51A29F962AE003AF59D /* Views */,
@@ -173,6 +176,7 @@
 				469E10C629F1B185005BB6DD /* Reminders.swift in Sources */,
 				46D3BC2329F1A1D70043C186 /* ContentView.swift in Sources */,
 				469E10C829F1B528005BB6DD /* ReminderView.swift in Sources */,
+				46FBED8D29F97CBD00198EB1 /* DBhelper.swift in Sources */,
 				4620D51D29F965F5003AF59D /* ReminderListModel.swift in Sources */,
 				46D3BC2129F1A1D70043C186 /* ReminderDVMApp.swift in Sources */,
 			);

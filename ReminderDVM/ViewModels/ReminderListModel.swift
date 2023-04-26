@@ -25,6 +25,11 @@ class ReminderListModel : ObservableObject{
         reminders.append(contentsOf: newItems)
     }
     
+    func addItem(title: String, body: String, date: Date){
+        let newItem = Reminder(title: title, body: body, date: date, status: false)
+        reminders.append(newItem)
+    }
+    
     func deleteItem(indexSet: IndexSet){
         reminders.remove(atOffsets: indexSet)
     }

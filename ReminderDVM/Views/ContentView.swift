@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var reminderlistModel : ReminderListModel
+    let db = DBHelper()
     
     var body: some View {
             VStack{
@@ -39,6 +40,7 @@ struct ContentView_Previews: PreviewProvider {
         NavigationView{
             ContentView()
         }
+        .preferredColorScheme(.dark)
         .environmentObject(ReminderListModel())
     }
 }
