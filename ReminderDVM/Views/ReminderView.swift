@@ -21,7 +21,9 @@ struct ReminderView: View {
 }
 
 struct ReminderView_Previews: PreviewProvider {
+    static var item1 : Reminder = Reminder(title: "Buy Tickets", body: "buy them early!", date: Date(timeIntervalSinceNow: 15), status: true)
+    
     static var previews: some View {
-        ReminderView(element: ReminderList.list.first!)
+        ReminderView(element: item1)
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4620D51D29F965F5003AF59D /* ReminderListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4620D51C29F965F5003AF59D /* ReminderListModel.swift */; };
 		469E10C629F1B185005BB6DD /* Reminders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E10C529F1B185005BB6DD /* Reminders.swift */; };
 		469E10C829F1B528005BB6DD /* ReminderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469E10C729F1B528005BB6DD /* ReminderView.swift */; };
 		46D3BC2129F1A1D70043C186 /* ReminderDVMApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D3BC2029F1A1D70043C186 /* ReminderDVMApp.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4620D51C29F965F5003AF59D /* ReminderListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderListModel.swift; sourceTree = "<group>"; };
 		469E10C529F1B185005BB6DD /* Reminders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminders.swift; sourceTree = "<group>"; };
 		469E10C729F1B528005BB6DD /* ReminderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderView.swift; sourceTree = "<group>"; };
 		46D3BC1D29F1A1D70043C186 /* ReminderDVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReminderDVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +38,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4620D51929F9612A003AF59D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				469E10C529F1B185005BB6DD /* Reminders.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4620D51A29F962AE003AF59D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				469E10C729F1B528005BB6DD /* ReminderView.swift */,
+				46D3BC2229F1A1D70043C186 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4620D51B29F9656A003AF59D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4620D51C29F965F5003AF59D /* ReminderListModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		46D3BC1429F1A1D70043C186 = {
 			isa = PBXGroup;
 			children = (
@@ -55,10 +82,10 @@
 		46D3BC1F29F1A1D70043C186 /* ReminderDVM */ = {
 			isa = PBXGroup;
 			children = (
-				469E10C529F1B185005BB6DD /* Reminders.swift */,
 				46D3BC2029F1A1D70043C186 /* ReminderDVMApp.swift */,
-				46D3BC2229F1A1D70043C186 /* ContentView.swift */,
-				469E10C729F1B528005BB6DD /* ReminderView.swift */,
+				4620D51929F9612A003AF59D /* Models */,
+				4620D51A29F962AE003AF59D /* Views */,
+				4620D51B29F9656A003AF59D /* ViewModels */,
 				46D3BC2429F1A1D90043C186 /* Assets.xcassets */,
 				46D3BC2629F1A1D90043C186 /* Preview Content */,
 			);
@@ -146,6 +173,7 @@
 				469E10C629F1B185005BB6DD /* Reminders.swift in Sources */,
 				46D3BC2329F1A1D70043C186 /* ContentView.swift in Sources */,
 				469E10C829F1B528005BB6DD /* ReminderView.swift in Sources */,
+				4620D51D29F965F5003AF59D /* ReminderListModel.swift in Sources */,
 				46D3BC2129F1A1D70043C186 /* ReminderDVMApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

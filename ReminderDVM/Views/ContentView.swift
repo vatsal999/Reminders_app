@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
-    var reminderlist: [Reminder] = ReminderList.list
+    
+    @EnvironmentObject var reminderlistModel : ReminderListModel
     
     var body: some View {
-        NavigationView{
             VStack{
                 List{
-                    ForEach(reminderlist, id: \.id){ item in
+                    ForEach(reminderlistModel.reminders){ item in
                         NavigationLink(destination: ReminderView(element: item),label: {
                             CardView(Reminder: item)
                         })
-                    }
+                    }.onDelete(perform: reminderlistModel.deleteItem)
                 }
                 Button(action: {}) {
                           HStack {
@@ -31,13 +31,15 @@ struct ContentView: View {
                         .padding()
             }
         .navigationTitle("Reminders")
-        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        NavigationView{
+            ContentView()
+        }
+        .environmentObject(ReminderListModel())
     }
 }
 
