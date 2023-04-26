@@ -21,7 +21,7 @@ class DBHelper {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "MM/dd/yy, hh:mma"
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return dateFormatter.string(from: date)
     }
     
@@ -120,7 +120,7 @@ class DBHelper {
                    let date = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
                    let status = (sqlite3_column_int(queryStatement,4) == 0 ? false : true)
                    
-                   reminderlist.append(Reminder(title: title, body: body, date: self.SQLDateTodate(date)!, status: status))
+                   reminderlist.append(Reminder(title: title, body: body, date: self.SQLDateTodate(date) ?? Date(), status: status))
                    
                    print("Query Result:")
                    print("\(id) | \(title) | \(body) | \(date) | \(status)")

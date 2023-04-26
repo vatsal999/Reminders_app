@@ -10,7 +10,6 @@ import SwiftUI
 struct ContentView: View {
     
     @EnvironmentObject var reminderlistModel : ReminderListModel
-    let db = DBHelper()
     
     var body: some View {
             VStack{
@@ -21,7 +20,8 @@ struct ContentView: View {
                         })
                     }.onDelete(perform: reminderlistModel.deleteItem)
                 }
-                Button(action: {}) {
+                NavigationLink("Add", destination: AddReminderView())
+                /*Button(action: {}) {
                           HStack {
                             Image(systemName: "plus.circle.fill")
                               .resizable()
@@ -29,7 +29,7 @@ struct ContentView: View {
                             Text("New Task")
                           }
                         }
-                        .padding()
+                        .padding()*/
             }
         .navigationTitle("Reminders")
     }
