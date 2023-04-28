@@ -14,8 +14,11 @@ struct AddReminderView: View {
     @State var titlefield : String = ""
     @State var bodyfield : String = ""
     @State var datefield : Date = Date()
+    let notify = NotificaionHelper()
     
     func saveReminder(){
+        notify.askPermission()
+        notify.sendNotification(date: datefield, title: titlefield, body: bodyfield)
         reminderlistModel.addItem(title: titlefield, body: bodyfield, date: datefield)
         presentationMode.wrappedValue.dismiss()
     }
