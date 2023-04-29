@@ -14,13 +14,20 @@ struct AddReminderView: View {
     @State var titlefield : String = ""
     @State var bodyfield : String = ""
     @State var datefield : Date = Date()
-    let notify = NotificaionHelper()
+    let notify = NotificationHelper()
+    // create a uuid from current date and title , body combination
+    // need this for cancelling specific notification or rescheduling them later
+    // TODO: implement the non hacky way (maybe store the UUID of a notification request in the data model
     
     func saveReminder(){
-        notify.askPermission()
-        notify.sendNotification(date: datefield, title: titlefield, body: bodyfield)
-        reminderlistModel.addItem(title: titlefield, body: bodyfield, date: datefield)
-        presentationMode.wrappedValue.dismiss()
+        // need this condition to create my_hacky_uuid
+        if(titlefield.count > 3){
+            notify.askPermission()
+            let my_hacky_uuid : String = "\(titlefield)\(bodyfield)\(datefield)"
+            reminderlistModel.addItem(title: titlefield, body: bodyfield, date: datefield)
+            notify.addNotification(id: my_hacky_uuid, date: datefield, title: titlefield, body: bodyfield)
+            presentationMode.wrappedValue.dismiss()
+        }
     }
     
     var body: some View {

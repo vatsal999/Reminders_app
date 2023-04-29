@@ -14,20 +14,31 @@ struct ContentView: View {
     var body: some View {
             VStack{
                 List{
-                    ForEach(reminderlistModel.reminders){ item in
-                        NavigationLink(destination: ReminderView(element: item),label: {
+                    ForEach(Array(reminderlistModel.reminders.enumerated()), id: \.offset){ index, item in
+                        NavigationLink(destination: ReminderView(index: index),label: {
                             CardView(Reminder: item)
                         })
-                    }.onDelete(perform: reminderlistModel.deleteItem)
-                }
-                        /*.swipeActions(edge: .leading) {
+                        .swipeActions(edge: .leading) {
                                 Button {
+                                    reminderlistModel.toggle_status(index: index)
                                 } label: {
-                                    Label("Done", systemImage: "plus.circle")
+                                    Label("Toggle", systemImage: "plus.circle")
                                 }
                                 .tint(.indigo)
-                        }*/
+                        }
+                        .swipeActions(edge: .trailing) {
+                                Button {
+                                    reminderlistModel.deleteItem(index: index)
+                                } label: {
+                                    Label("Delete", systemImage: "minus.circle.fill")
+                                }
+                                .tint(.red)
+                        }
+                    }
+                    //.onDelete(perform: reminderlistModel.deleteItem)
+                }
                 NavigationLink("Add", destination: AddReminderView())
+                // add task button
                 /*Button(action: {}) {
                           HStack {
                             Image(systemName: "plus.circle.fill")
@@ -47,7 +58,6 @@ struct ContentView_Previews: PreviewProvider {
         NavigationView{
             ContentView()
         }
-        .preferredColorScheme(.dark)
         .environmentObject(ReminderListModel())
     }
 }

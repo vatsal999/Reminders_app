@@ -139,4 +139,39 @@ class DBHelper {
         
         sqlite3_finalize(deleteStatement)
     }
+    
+    func toggle_status(id: Int, status: Bool){
+        let updateStatementString = "UPDATE reminder SET status = '\(status ? 1 : 0)' WHERE Id = \(id);"
+        var updateStatement: OpaquePointer?
+        if sqlite3_prepare_v2(self.db, updateStatementString, -1, &updateStatement, nil) == SQLITE_OK {
+            if sqlite3_step(updateStatement) == SQLITE_DONE {
+              print("\nSuccessfully updated status to \(status)")
+            } else {
+              print("\nCould not update row.")
+            }
+          } else {
+            print("\nUPDATE statement is not prepared")
+          }
+        sqlite3_finalize(updateStatement)
+        
+    }
+    
+    func update(id: Int, title:String, body:String, date:Date, status: Bool){
+        let datefuckery = (self.dateToSQLDate(date) as NSString)
+        let updateStatementString = "UPDATE reminder SET title = '\(title)' , body = '\(body)' , date = '\(datefuckery)', status = '\(status ? 1: 0)' WHERE Id = \(id);"
+        var updateStatement: OpaquePointer?
+        
+        if sqlite3_prepare_v2(self.db, updateStatementString, -1, &updateStatement, nil) == SQLITE_OK {
+            
+            if sqlite3_step(updateStatement) == SQLITE_DONE {
+              print("\nSuccessfully updated row!")
+            } else {
+              print("\nCould not update row.")
+            }
+          } else {
+            print("\nUPDATE statement is not prepared")
+          }
+        sqlite3_finalize(updateStatement)
+        
+    }
 }

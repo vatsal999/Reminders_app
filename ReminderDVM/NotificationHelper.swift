@@ -8,7 +8,7 @@
 import Foundation
 import UserNotifications
 
-class NotificaionHelper {
+class NotificationHelper {
     func askPermission(){
         UNUserNotificationCenter.current().requestAuthorization(
             options: [.alert, .badge, .sound]) { success, error in
@@ -19,7 +19,7 @@ class NotificaionHelper {
             }
         }
     }
-    func sendNotification(date: Date, title: String, body: String){
+    func addNotification(id: String, date: Date, title: String, body: String){
         var trigger : UNNotificationTrigger?
         let dateComponents = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute], from: date)
         trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
@@ -29,8 +29,13 @@ class NotificaionHelper {
         content.body = body
         content.sound = UNNotificationSound.default
         
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        //let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: id , content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
+    }
+    
+    func deleteNotification(id: String){
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [id])
     }
     
 }
