@@ -20,6 +20,13 @@ struct ContentView: View {
                         })
                     }.onDelete(perform: reminderlistModel.deleteItem)
                 }
+                        /*.swipeActions(edge: .leading) {
+                                Button {
+                                } label: {
+                                    Label("Done", systemImage: "plus.circle")
+                                }
+                                .tint(.indigo)
+                        }*/
                 NavigationLink("Add", destination: AddReminderView())
                 /*Button(action: {}) {
                           HStack {

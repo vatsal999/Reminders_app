@@ -29,9 +29,10 @@ class ReminderListModel : ObservableObject{
     
     func deleteItem(indexSet: IndexSet){
         for index in indexSet {
-            self.db.deleteByID(id: index)
+            self.db.deleteByID(id: self.reminders[index].id)
+            self.reminders.remove(at: index)
         }
-        reminders.remove(atOffsets: indexSet)
+        //reminders.remove(atOffsets: indexSet)
     }
     
 }

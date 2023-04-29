@@ -68,16 +68,6 @@ class DBHelper {
     }
     
     func insert(title:String, body:String, date:Date, status:Bool){
-        /*let reminders = read()
-        for p in reminders
-        {
-            if p.id == id
-            {
-                return
-            }
-        }
-        */
-        
         var isEmpty = false
         if read().isEmpty {
             isEmpty = true
@@ -120,7 +110,7 @@ class DBHelper {
                    let date = String(describing: String(cString: sqlite3_column_text(queryStatement, 3)))
                    let status = (sqlite3_column_int(queryStatement,4) == 0 ? false : true)
                    
-                   reminderlist.append(Reminder(title: title, body: body, date: self.SQLDateTodate(date) ?? Date(), status: status))
+                   reminderlist.append(Reminder(id: id, title: title, body: body, date: self.SQLDateTodate(date) ?? Date(), status: status))
                    
                    print("Query Result:")
                    print("\(id) | \(title) | \(body) | \(date) | \(status)")
@@ -139,7 +129,7 @@ class DBHelper {
         if sqlite3_prepare_v2(self.db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
             sqlite3_bind_int(deleteStatement, 1, Int32(id))
             if sqlite3_step(deleteStatement) == SQLITE_DONE {
-                print("Successfully deleted row.")
+                print("Successfully deleted row #\(id).")
             } else {
                 print("Could not delete row.")
             }
